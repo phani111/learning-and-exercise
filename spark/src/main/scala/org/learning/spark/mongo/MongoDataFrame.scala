@@ -6,7 +6,7 @@ import com.mongodb.spark.config._
 import org.bson.Document
 import org.apache.spark.sql.functions._
 
-class SparkWithMongo (private val spark : SparkSession) {
+class MongoDataFrame (private val spark : SparkSession) {
     import spark.imlicits._
     private val uri : String = "mongodb://user:pass@node1:27017,node2:27017,node3:27017/?replicaSet=rpSetName&&authSource=authdb"
 
