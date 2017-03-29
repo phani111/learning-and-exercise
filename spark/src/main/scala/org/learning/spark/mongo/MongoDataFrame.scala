@@ -8,13 +8,20 @@ import org.apache.spark.sql.functions._
 
 class MongoDataFrame (private val spark : SparkSession) {
     import spark.imlicits._
-    private val uri : String = "mongodb://user:pass@node1:27017,node2:27017,node3:27017/?replicaSet=rpSetName&&authSource=authdb"
+    private val uri : String = "mongodb://user:pass@node1:27017,node2:27017,node3:27017/?replicaSet=rpSetName&&authSource=authdb&readPreference=secondaryPreferred"
 
     def readAndSaveAsTextFile : Unit = {
-        val readConfig = ReadConfig(Map("uri" -> uri, "database" -> "cas","collection" -> "msdn_technet_questions"))
+        val readConfig = ReadConfig(Map(
+        "uri" -> uri, 
+        "readPreference.name" -> "secondaryPreferred",
+        "partitioner" -> "MongoSamplePartitioner",
+        "database" -> "cas",
+        "collection" -> "msdn_technet_questions"))
         val pageViewDF = MongoSpark.load(spark, readConfig).
             select("_id", "authorId", "forumId", "createdOn", "views")
-        pageViewDF.rdd.saveAsTextFile("hdfs://namenode:9000/user/spark/text/pageviews.txt")
+        val accum = spark.sparkContext.longAccumulator("My Accumulator")
+        pageViewDF.foreach (x => accum.add(1))
+        pageViewDF.rdd.saveAsTextFile("hdfs://namenode:9000/user/spark/text/pageviews")
     }
 
     def readPlainDocument : Unit = {
