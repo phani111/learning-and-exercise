@@ -1,5 +1,5 @@
-# learning-and-exercise
-Learning and exercise: host for stuff to learn and some exercise bundles
+# Learning and exercise
+Things to learn and exercises to do
 
 ## Spark
 
@@ -12,3 +12,17 @@ Learning and exercise: host for stuff to learn and some exercise bundles
 ### DataFrame and Dataset
 
 ## Hadoop
+
+## Scala
+
+## Typescript
+
+## Shell
+
+## Python
+
+## Java
+
+## NodeJS
+
+## AngularJS2
