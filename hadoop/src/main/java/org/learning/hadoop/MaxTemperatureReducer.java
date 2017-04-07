@@ -1,3 +1,5 @@
+package org.learning.hadoop;
+
 import java.io.IOException;
 import java.util.Iterator;
 
