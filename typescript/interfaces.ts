@@ -25,3 +25,5 @@ function createSquare (config : SquareConfig) : {color: string; area: number} {
 
     return newSquare;
 }
+
+let mySquare = createSquare({color: "black"});
