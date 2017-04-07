@@ -48,3 +48,39 @@ cp *script Mod_scripts/
 # Link files
 # create a symbolic to a file
 ln -s data_file sl_data_file
+
+# renaming file
+mv fail fzll
+
+# change a file's location
+mv fail Pictures/
+
+# deleting files
+rm -i fail
+
+# creating directries
+mkdir New_dir
+
+# creating directory with parent directories
+mkdir -p New_dir/Sub_dir/Under_dir
+
+# deleting directoreis
+rmdir New_dir
+
+# another way
+rm -ir New_dir
+
+# viewing file contents
+file my_file
+
+# viewing whole file content
+cat test1
+
+# number the line
+cat -n test1
+
+# number the line has text
+cat -b test1
+
+# skip tab characters
+cat -T test1
