@@ -27,3 +27,13 @@ function createSquare (config : SquareConfig) : {color: string; area: number} {
 }
 
 let mySquare = createSquare({color: "black"});
+
+// readonly properties
+interface Point {
+    readonly x: number;
+    readonly y: number;
+}
+
+let p1: Point = {x: 10, y: 20};
+// p1.x = 20 // error
+
