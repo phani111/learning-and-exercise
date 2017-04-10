@@ -16,9 +16,25 @@ class Aggregations (sc : SparkContext) {
         val result = rdd.fold(0)((a, b) => a + b)
     }
 
-    def reduce () = [
+    def reduce () = {
         val data = Array(1,2,3,4,5,6)
         val rdd = sc.parallelize(data)
         val result = rdd.reduce((a, b) => a + b)
-    ]
+    }
+
+    // Pair RDD
+    def reduceByKey () = {
+        val data = Array(("a", 3), ("b", 4), ("a", 1))
+        val pairRdd = sc.parallelize(data)
+        val result = pairRdd.reduceByKey((x, y) => x + y)
+    }
+
+    def join () = {
+        val personAddress = sc.parallelize(Array(("Tom", "Road #135"), ("Jerry", "Street 156"), ("Jack", "Seattle")))
+        val personAge = sc.parallelize(Array(("Tom", 18), ("Jerry", 19)))
+
+        val joinResult = personAddress.join(personAge)
+        val leftOuterJoinResult = personAddress.leftOuterJoin(personAge)
+        var rightOuterJoinResult = personAddress.rightOuterJoin(personAge)
+    }
 }
