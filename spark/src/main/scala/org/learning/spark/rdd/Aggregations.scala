@@ -37,4 +37,16 @@ class Aggregations (sc : SparkContext) {
         val leftOuterJoinResult = personAddress.leftOuterJoin(personAge)
         var rightOuterJoinResult = personAddress.rightOuterJoin(personAge)
     }
+
+    def groupByKey () = {
+        val logs = sc.parallelize(Array(("Tom", 1), ("Jack", 3), ("Jerry", 7), ("Tom", 11)))
+        val result = logs.groupByKey()
+    }
+
+    def combineByKey () = {
+        val logs = sc.parallelize(Array(("Tom", 1), ("Jack", 3), ("Jerry", 7), ("Tom", 11)))
+        val result = logs.combineByKey( (v: Int) => (v, 1),
+            (c : (Int, Int), v: Int) => (v + c._1, c._2 + 1),
+            (c1: (Int, Int), c2: (Int, Int)) => (c1._1 + c2._1, c1._2 + c2._2))
+    }
 }
