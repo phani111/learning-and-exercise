@@ -31,8 +31,7 @@ class Aggregations (sc : SparkContext) {
 
     def join () = {
         val personAddress = sc.parallelize(Array(("Tom", "Road #135"), ("Jerry", "Street 156"), ("Jack", "Seattle")))
-        val personAge = sc.parallelize(Array(("Tom", 18), ("Jerry", 19)))
-
+         val personAge = sc.parallelize(Array(("Tom", 18), ("Jerry", 19))) 
         val joinResult = personAddress.join(personAge)
         val leftOuterJoinResult = personAddress.leftOuterJoin(personAge)
         var rightOuterJoinResult = personAddress.rightOuterJoin(personAge)
