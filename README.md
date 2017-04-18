@@ -1,20 +1,21 @@
 # Learning and exercise
 Things to learn and exercises to do
 
-## Spark
+* Data
+    * Spark
+    * Hadoop
+    * Hive
 
-## Hadoop
+* Language and Scripts
+    * Scala
+    * Typescript
+    * Shell
+    * Python
+    * Java
 
-## Scala
+* Frameworks
+    * Spring
+    * NodeJS
+    * AngularJS
 
-## Typescript
-
-## Shell
-
-## Python
-
-## Java
-
-## NodeJS
-
-## AngularJS
+* Machine Learning
