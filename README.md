@@ -3,14 +3,6 @@ Things to learn and exercises to do
 
 ## Spark
 
-### RDD
-#### Parallelized
-#### Distributed
-#### Operations
-#### Closure
-
-### DataFrame and Dataset
-
 ## Hadoop
 
 ## Scala
@@ -25,4 +17,4 @@ Things to learn and exercises to do
 
 ## NodeJS
 
-## AngularJS2
+## AngularJS
