@@ -9,6 +9,5 @@ class VectorBasics {
 
         // for each active values
         sparseVector.foreachActive((i, v) => { printf("index:%d, value:%f", i, v) })
-
     }
 }

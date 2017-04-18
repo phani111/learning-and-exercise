@@ -13,6 +13,15 @@ class DatasetBasics (spark : SparkSession) {
             toDF("id", "authorId", "forumId", "createdOn", "views")
     }
 
+    // 3rd party lib: https://github.com/databricks/spark-xml
+    // $SPARK_HOME/bin/spark-shell --packages com.databricks:spark-xml_2.11:0.4.1
+    def readXMLFile () : Unit = {
+        val books = spark.read.
+            format("com.databricks.spark.xml").
+            option("rowTag", "book").
+            load("hdfs://p1.rb.net:9000/user/spark/books.xml")
+    }
+
     def castColumnType () : Unit = {
          val pageViewsDF = spark.
             read.
